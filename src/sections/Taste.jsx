@@ -51,7 +51,7 @@ const Taste = () => {
     },
     {
       img: Caramel3,
-      text: "Balanced",
+      text: "Balanced          ",
       imgClass: "img-4",
       textClass: "text-4",
       arrowClass: "arrow-4",

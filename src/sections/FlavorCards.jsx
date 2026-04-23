@@ -1,6 +1,4 @@
 import React from "react";
-
-
 const FlavorCards = ({ setActiveFlavor }) => {
   const flavors = [
     {
@@ -42,7 +40,7 @@ const FlavorCards = ({ setActiveFlavor }) => {
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-5 items-end pb-24 min-h-screen px-6 md:px-16">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-5 items-end pb-20 min-h-screen px-6 md:px-16">
       {flavors.map((flavor) => (
         <div
           key={flavor.id}
