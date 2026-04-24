@@ -1,11 +1,11 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useState } from "react";
 import Logo from "../assets/logo.png";
 import Gift from "../assets/gift.png";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faSearch, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import { ThemeContext } from "../context/ThemeContext";
 
@@ -14,6 +14,7 @@ export default function Header() {
   const giftRef = useRef(null);
 
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
     { name: "Home", link: "#" },
@@ -22,6 +23,7 @@ export default function Header() {
     { name: "Gifting", link: "#" },
     { name: "Contact", link: "#" },
   ];
+
   useGSAP(() => {
     gsap.from(headerRef.current, {
       y: -40,
@@ -30,6 +32,7 @@ export default function Header() {
       ease: "power2.out",
     });
   });
+
   useGSAP(() => {
     if (!giftRef.current) return;
 
@@ -45,21 +48,18 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className={`w-full sticky top-0 z-20 ${
+      className={`w-full sticky top-0 z-50 ${
         theme === "dark" ? "bg-black" : "bg-[#f7f3ea]"
       }`}
     >
       <div
-        className={`flex items-center justify-between px-4 py-3 shadow-sm w-full ${
+        className={`flex items-center justify-between px-4 sm:px-6 md:px-12 py-3 shadow-sm ${
           theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
         }`}
       >
+        <img src={Logo} alt="Logo" className="w-28 sm:w-32 md:w-36" />
 
-        <div className="flex items-center">
-          <img src={Logo} alt="Logo" className="max-w-36" />
-        </div>
-
-        <nav className="flex items-center gap-10 font-medium">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-10 font-medium">
           {navLinks.map((item, i) => (
             <a
               key={i}
@@ -74,7 +74,9 @@ export default function Header() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-5">
+
+        <div className="flex items-center gap-3 sm:gap-5">
+          
           <button
             className={`transition ${
               theme === "dark"
@@ -82,10 +84,9 @@ export default function Header() {
                 : "text-gray-700 hover:text-black"
             }`}
           >
-            <FontAwesomeIcon icon={faSearch} size="lg" />
+            <FontAwesomeIcon icon={faSearch} />
           </button>
 
-  
           <button
             className={`transition ${
               theme === "dark"
@@ -93,28 +94,60 @@ export default function Header() {
                 : "text-gray-700 hover:text-black"
             }`}
           >
-            <FontAwesomeIcon icon={faUser} size="lg" />
+            <FontAwesomeIcon icon={faUser} />
           </button>
-<button
-  onClick={toggleTheme}
-  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border
-    ${
-      theme === "dark"
-        ? "bg-white text-black border-white hover:bg-gray-200"
-        : "bg-black text-white border-black hover:bg-gray-800"
-    }
-  `}
->
-  {theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode"}
-</button>
+
+          <button
+            onClick={toggleTheme}
+            className={`hidden sm:block px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border
+              ${
+                theme === "dark"
+                  ? "bg-white text-black border-white hover:bg-gray-200"
+                  : "bg-black text-white border-black hover:bg-gray-800"
+              }
+            `}
+          >
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
           <img
             ref={giftRef}
             src={Gift}
             alt="Gift"
-            className="w-10 h-10"
+            className="w-8 h-8 sm:w-10 sm:h-10"
           />
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-xl"
+          >
+            <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
+          </button>
         </div>
       </div>
+      {menuOpen && (
+        <div
+          className={`md:hidden px-6 py-4 space-y-4 ${
+            theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
+          }`}
+        >
+          {navLinks.map((item, i) => (
+            <a
+              key={i}
+              href={item.link}
+              className="block border-b pb-2"
+              onClick={() => setMenuOpen(false)}
+            >
+              {item.name}
+            </a>
+          ))}
+
+          <button
+            onClick={toggleTheme}
+            className="w-full mt-3 py-2 rounded-full border text-sm"
+          >
+            {theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode"}
+          </button>
+        </div>
+      )}
     </header>
   );
 }

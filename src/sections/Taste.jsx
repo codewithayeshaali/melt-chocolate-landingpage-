@@ -61,83 +61,84 @@ const Taste = () => {
     },
   ];
 
-  useGSAP(() => {
-        data.forEach((item, i) => {
-      gsap.set(`.${item.imgClass}`, {
-        visibility: i === 0 ? "visible" : "hidden",
+  useGSAP(
+    () => {
+      data.forEach((item, i) => {
+        gsap.set(`.${item.imgClass}`, {
+          visibility: i === 0 ? "visible" : "hidden",
+        });
       });
-    });
 
-    const splits = data.map(
-      (item) => new SplitText(`.${item.textClass}`, { type: "chars" })
-    );
+      const splits = data.map(
+        (item) => new SplitText(`.${item.textClass}`, { type: "chars" }),
+      );
 
-    const arrows = gsap.utils.toArray(
-      tasteRef.current.querySelectorAll(".arrow-path")
-    );
+      const arrows = gsap.utils.toArray(
+        tasteRef.current.querySelectorAll(".arrow-path"),
+      );
 
-    arrows.forEach((path) => {
-      const length = path.getTotalLength();
-      gsap.set(path, {
-        strokeDasharray: length,
-        strokeDashoffset: length,
+      arrows.forEach((path) => {
+        const length = path.getTotalLength();
+        gsap.set(path, {
+          strokeDasharray: length,
+          strokeDashoffset: length,
+        });
       });
-    });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: tasteRef.current,
-        start: "top top",
-        end: "+=600%",
-        scrub: 1,
-        pin: true,
-      },
-    });
-
-    data.forEach((item, i) => {
-      if (i !== 0) {
-        tl.to(`.${data[i - 1].imgClass}`, { visibility: "hidden" });
-        tl.to(`.${item.imgClass}`, { visibility: "visible" }, "<");
-      }
-
-      tl.to(
-        `.${item.arrowClass}`,
-        {
-          strokeDashoffset: 0,
-          duration: 1.2,
-          ease: "power1.inOut",
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: tasteRef.current,
+          start: "top top",
+          end: "+=600%",
+          scrub: 1,
+          pin: true,
         },
-        "<+=0.3"
-      );
+      });
 
-      tl.to(
-        `.${item.arrowClass}`,
-        {
-          fill: "#0D1927",
-          duration: 0.2,
-        },
-        "<+=0.4"
-      );
+      data.forEach((item, i) => {
+        if (i !== 0) {
+          tl.to(`.${data[i - 1].imgClass}`, { visibility: "hidden" });
+          tl.to(`.${item.imgClass}`, { visibility: "visible" }, "<");
+        }
 
-      tl.from(
-        splits[i].chars,
-        {
-          opacity: 0,
-          stagger: 0.08,
-          duration: 0.6,
-        },
-        "<+=0.1"
-      );
-    });
-  }, { scope: tasteRef });
+        tl.to(
+          `.${item.arrowClass}`,
+          {
+            strokeDashoffset: 0,
+            duration: 1.2,
+            ease: "power1.inOut",
+          },
+          "<+=0.3",
+        );
+
+        tl.to(
+          `.${item.arrowClass}`,
+          {
+            fill: "#0D1927",
+            duration: 0.2,
+          },
+          "<+=0.4",
+        );
+
+        tl.from(
+          splits[i].chars,
+          {
+            opacity: 0,
+            stagger: 0.08,
+            duration: 0.6,
+          },
+          "<+=0.1",
+        );
+      });
+    },
+    { scope: tasteRef },
+  );
 
   return (
     <section
       ref={tasteRef}
       className={`text-center h-screen pt-8 pb-20 transition-colors duration-500 ${
-        theme === "dark"
-          ? "bg-black text-white"
-          : "bg-[#f7f3ea] text-amber-900"
+        theme === "dark" ? "bg-black text-white" : "bg-[#f7f3ea] text-amber-900"
       }`}
     >
       <h2>Feel the Melt</h2>
@@ -159,12 +160,14 @@ const Taste = () => {
                       className={`arrow-path ${item.arrowClass}`}
                       d="M0.5 11.2 C6.6 21 34.5 32.1 54 32.6"
                       fill="none"
-                      stroke="#2C2C2C"
+                      stroke={theme === "dark" ? "#f5f5f5" : "#2C2C2C"}
                       strokeWidth="2.7"
                     />
                   </svg>
 
-                  <span className={`${item.textClass} text-[40px] font-bold whitespace-nowrap`}>
+                  <span
+                    className={`${item.textClass} text-[40px] font-bold whitespace-nowrap`}
+                  >
                     {item.text}
                   </span>
                 </>
@@ -181,7 +184,7 @@ const Taste = () => {
                       className={`arrow-path ${item.arrowClass}`}
                       d="M0.5 11.2 C6.6 21 34.5 32.1 54 32.6"
                       fill="none"
-                      stroke="#2C2C2C"
+                      stroke={theme === "dark" ? "#f5f5f5" : "#2C2C2C"}
                       strokeWidth="2.7"
                     />
                   </svg>
