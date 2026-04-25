@@ -62,19 +62,19 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className={`px-4 sm:px-6 md:px-16 py-12 sm:py-16 transition-colors duration-500 ${
+      className={`px-4 sm:px-6 md:px-16 py-12 sm:py-16 transition-colors duration-500 cursor-pointer ${
         theme === "dark"
           ? "bg-gray-900 text-white"
           : "bg-[#2b1a12] text-[#f5e6d8]"
       }`}
     >
       <div
-        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 border-b pb-8 sm:pb-10 ${
+        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 border-b pb-8 sm:pb-10 cursor-pointer ${
           theme === "dark" ? "border-white/20" : "border-[#ffffff20]"
         }`}
       >
         {" "}
-        <div className="text-center sm:text-left">
+        <div className="text-center sm:text-left cursor-default">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-snug">
             Crafted to melt,
             <br /> not rush.

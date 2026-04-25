@@ -5,7 +5,12 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faSearch, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faSearch,
+  faBars,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { ThemeContext } from "../context/ThemeContext";
 
@@ -59,15 +64,15 @@ export default function Header() {
       >
         <img src={Logo} alt="Logo" className="w-28 sm:w-32 md:w-36" />
 
-        <nav className="hidden md:flex items-center gap-6 lg:gap-10 font-medium">
+        <nav className="hidden lg:flex items-center gap-6 lg:gap-10 font-medium">
           {navLinks.map((item, i) => (
             <a
               key={i}
               href={item.link}
-              className={`transition ${
+              className={` cursor-pointer transition hover:text-orange-500 ${
                 theme === "dark"
-                  ? "text-gray-300 hover:text-orange-400"
-                  : "text-gray-800 hover:text-orange-500"
+                  ? "text-gray-300 "
+                  : "text-gray-800 "
               }`}
             >
               {item.name}
@@ -76,9 +81,8 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-5">
-          
           <button
-            className={`transition ${
+            className={`transition cursor-pointer hover:text-orange-500 ${
               theme === "dark"
                 ? "text-gray-300 hover:text-white"
                 : "text-gray-700 hover:text-black"
@@ -88,7 +92,7 @@ export default function Header() {
           </button>
 
           <button
-            className={`transition ${
+            className={`cursor-pointer transition hover:text-orange-500 ${
               theme === "dark"
                 ? "text-gray-300 hover:text-white"
                 : "text-gray-700 hover:text-black"
@@ -99,33 +103,34 @@ export default function Header() {
 
           <button
             onClick={toggleTheme}
-            className={`hidden sm:block px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border
-              ${
-                theme === "dark"
-                  ? "bg-white text-black border-white hover:bg-gray-200"
-                  : "bg-black text-white border-black hover:bg-gray-800"
-              }
-            `}
+            className={`block px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium cursor-pointer transition-all duration-300 border ${
+              theme === "dark"
+                ? "bg-white text-black border-white hover:bg-gray-200"
+                : "bg-black text-white border-black hover:bg-gray-800"
+            }`}
           >
             {theme === "dark" ? "☀️" : "🌙"}
           </button>
+
           <img
             ref={giftRef}
             src={Gift}
             alt="Gift"
-            className="w-8 h-8 sm:w-10 sm:h-10"
+            className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer transition hover:text-orange-500"
           />
+
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-xl"
+            className="lg:hidden text-xl cursor-pointer transition hover:text-orange-500"
           >
             <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
           </button>
         </div>
       </div>
+
       {menuOpen && (
         <div
-          className={`md:hidden px-6 py-4 space-y-4 ${
+          className={`lg:hidden px-6 py-4 space-y-4 cursor-pointer ${
             theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
           }`}
         >
@@ -133,7 +138,7 @@ export default function Header() {
             <a
               key={i}
               href={item.link}
-              className="block border-b pb-2"
+              className="block border-b pb-2 cursor-pointer transition hover:text-orange-500"
               onClick={() => setMenuOpen(false)}
             >
               {item.name}
@@ -142,7 +147,7 @@ export default function Header() {
 
           <button
             onClick={toggleTheme}
-            className="w-full mt-3 py-2 rounded-full border text-sm"
+            className="w-full mt-3 py-2 rounded-full border text-sm cursor-pointer"
           >
             {theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode"}
           </button>

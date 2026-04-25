@@ -71,7 +71,7 @@ const Hero = () => {
 
   return (
     <section
-      className={`choco-section inner-container transition-colors duration-500 ${
+      className={`choco-section inner-container px-4 sm:px-6 md:px-10 lg:px-28 transition-colors duration-500 ${
         theme === "dark" ? "bg-black text-white" : "bg-[#f7f3ea] text-black"
       }`}
     >

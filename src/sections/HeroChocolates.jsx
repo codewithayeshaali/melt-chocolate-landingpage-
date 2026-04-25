@@ -78,25 +78,78 @@ const { theme } = useContext(ThemeContext);
 
   return (
     <>
-      <div className={`text-center ${theme === "dark" ? "text-white" : "text-brown"} pt-20 pb-24`}>
-        <h1 className='text-8xl font-bold leading-28'>Four <span className='text-orange'>Flavors.</span></h1>  
-        <h2 className='font-medium text-[40px]'>One Perfect Melt.</h2>
-      </div>
-      <div className="flex justify-center items-start gap-6">
-        <div>
-          <img src={activeFlavor === 'caramel' ? CaramelOpen : Caramel} alt="Caramel" className='relative z-10 caremel-choco max-w-72.5 mt-18 drop-shadow-[0_10px_40px_rgba(255,107,87,0.5)]' />
-        </div>
-        <div>
-          <img src={activeFlavor === 'cocoa' ? CocoaOpen : Cocoa} alt="Cocoa" className='relative z-10 cocoa-choco max-w-72.5 drop-shadow-[0_10px_40px_rgba(72,156,211,0.5)]' />
-        </div>
-        <div>
-          <img src={activeFlavor === 'orange' ? OrangeOpen : Orange} alt="Orange" className='relative z-10 orange-choco max-w-72.5 drop-shadow-[0_10px_40px_rgba(253,211,38,0.5)]' />
-        </div>
-        <div className='relative'>
-          <img src={activeFlavor === 'almond' ? AlmondOpen : Almond} alt="Almond" className='relative z-10 almond-choco max-w-72.5 mt-18 drop-shadow-[0_10px_40px_rgba(157,156,61,0.5)]' />
-          <img src={Stamp} alt="Stamp" className='stamp absolute z-10 max-w-37.5 -top-10 -left-20 transform rotate-32' />
-        </div>
-      </div>
+      <div className={`text-center whitespace-nowrap  ${theme === "dark" ? "text-white" : "text-brown"} pt-15 sm:pt-20 pb-16 sm:pb-24`}
+>
+  <h1 className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl font-bold ">Four <span className="text-orange">Flavors.</span>
+  </h1>
+  <h2 className="font-medium text-xl sm:text-2xl md:text-3xl lg:text-[40px]">
+    One Perfect Melt.
+  </h2>
+</div>
+
+<div className="flex justify-center items-start gap-4 sm:gap-6 md:gap-8 lg:gap-6 px-4">
+  
+  <div>
+    <img
+      src={activeFlavor === "caramel" ? CaramelOpen : Caramel}
+      alt="Caramel"
+      className="
+        relative z-10 caremel-choco
+        w-72 md:w-65 lg:w-72
+        mt-8 md:mt-12 lg:mt-18
+        drop-shadow-[0_10px_40px_rgba(255,107,87,0.5)]
+      "
+    />
+  </div>
+
+  <div>
+    <img
+      src={activeFlavor === "cocoa" ? CocoaOpen : Cocoa}
+      alt="Cocoa"
+      className="
+        relative z-10 cocoa-choco
+        w-65 md:w-65 lg:w-72
+        drop-shadow-[0_10px_40px_rgba(72,156,211,0.5)]
+      "
+    />
+  </div>
+
+  <div>
+    <img
+      src={activeFlavor === "orange" ? OrangeOpen : Orange}
+      alt="Orange"
+      className="
+        relative z-10 orange-choco
+        w-60 md:w-65 lg:w-72
+        drop-shadow-[0_10px_40px_rgba(253,211,38,0.5)]
+      "
+    />
+  </div>
+
+  <div className="relative">
+    <img
+      src={activeFlavor === "almond" ? AlmondOpen : Almond}
+      alt="Almond"
+      className="
+        relative z-10 almond-choco
+        w-60 md:w-65 lg:w-72
+        mt-8 md:mt-12 lg:mt-18
+        drop-shadow-[0_10px_40px_rgba(157,156,61,0.5)]
+      "
+    />
+    <img
+      src={Stamp}
+      alt="Stamp"
+      className="
+        stamp absolute z-10
+        w-10 sm:w-14 md:w-16 lg:w-28
+        -top-4 sm:-top-6 md:-top-8 lg:-top-10
+        -left-6 sm:-left-8 md:-left-12 lg:-left-20
+        rotate-12 md:rotate-20 lg:rotate-32
+      "
+    />
+  </div>
+</div>
     </>
   )
 }
