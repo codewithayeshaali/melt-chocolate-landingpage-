@@ -3,7 +3,10 @@
 @import "@fontsource/inter/400.css";  
 @import "@fontsource/inter/500.css";  
 @import "@fontsource/inter/600.css";   
-@import "@fontsource/inter/700.css";   
+@import "@fontsource/inter/700.css"; 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+.handwritten {  font-family: 'Kalam', cursive;
+  font-weight: 300; }  
 
 @theme {
   --font-body: "Inter", sans-serif;
@@ -51,3 +54,4 @@ body {
   color: var(--text);
   transition: background-color 0.5s ease, color 0.5s ease;
 }
+

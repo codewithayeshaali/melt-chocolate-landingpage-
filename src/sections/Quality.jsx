@@ -50,7 +50,7 @@ const Quality = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=300%",
+          end: "+=200%",
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -71,20 +71,20 @@ const Quality = () => {
   return (
     <section
       ref={sectionRef}
-      className={`${
+      className={`min-h-screen ${
         theme === "dark"
           ? "bg-black text-white"
           : "bg-[#f7f3ea] text-amber-900"
-      } inner-container overflow-hidden pt-20 md:pt-30 pb-24 md:pb-40`}
+      } inner-container overflow-hidden  px-4 sm:px-5 md:px-8 lg:px-20 pt-20 md:pt-30 pb-24 md:pb-40`}
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
-        <div className="lg:col-span-7 flex flex-col gap-40">
-          <h2 className="max-w-full sm:w-2/3 lg:max-w-[700px] leading-tight text-xl sm:text-3xl md:text-5xl">
+        <div className="lg:col-span-7 flex flex-col lg:gap-40">
+          <h2 className="max-w-full sm:w-2/3 lg:max-w-[700px] leading-tight text-2xl sm:text-3xl md:text-5xl">
             What goes into every bar of{" "}
             <span className="text-orange">MELT</span>
           </h2>
 
-          <p className="max-w-full lg:max-w-[460px] leading-6 font-medium text-sm sm:text-base">
+          <p className="max-w-full lg:max-w-[460px] leading-6 font-medium text-sm sm:text-lg">
             Every bar is a result of careful sourcing, precise timing, and
             countless taste tests — all to make sure each bite feels
             intentional.
@@ -96,7 +96,7 @@ const Quality = () => {
             <div
               key={i}
               ref={(el) => (cardsRef.current[i] = el)}
-              className={`card ${item.bg} text-white rounded-3xl w-full p-6 sm:p-5 md:p-10 min-h-[200px] sm:min-h-[300px] flex flex-col justify-between ${item.position}`}
+              className={`card ${item.bg} text-white rounded-3xl w-full p-6 sm:p-5 md:p-10 h-[280px] sm:h-[350px] md:h-[450px] lg:h-[400px]  flex flex-col justify-between ${item.position}`}
             >
               <div>
                 <div className="text-5xl sm:text-6xl md:text-[5vw] font-semibold leading-none">

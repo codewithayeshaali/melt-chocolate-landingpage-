@@ -95,7 +95,7 @@ const { theme } = useContext(ThemeContext);
       alt="Caramel"
       className="
         relative z-10 caremel-choco
-        w-72 md:w-65 lg:w-72
+        w-70 md:w-65 lg:w-72
         mt-8 md:mt-12 lg:mt-18
         drop-shadow-[0_10px_40px_rgba(255,107,87,0.5)]
       "
@@ -108,7 +108,7 @@ const { theme } = useContext(ThemeContext);
       alt="Cocoa"
       className="
         relative z-10 cocoa-choco
-        w-65 md:w-65 lg:w-72
+        w-70 md:w-65 lg:w-72
         drop-shadow-[0_10px_40px_rgba(72,156,211,0.5)]
       "
     />
@@ -120,7 +120,7 @@ const { theme } = useContext(ThemeContext);
       alt="Orange"
       className="
         relative z-10 orange-choco
-        w-60 md:w-65 lg:w-72
+        w-70 md:w-65 lg:w-72
         drop-shadow-[0_10px_40px_rgba(253,211,38,0.5)]
       "
     />
@@ -132,7 +132,7 @@ const { theme } = useContext(ThemeContext);
       alt="Almond"
       className="
         relative z-10 almond-choco
-        w-60 md:w-65 lg:w-72
+        w-70 md:w-65 lg:w-72
         mt-8 md:mt-12 lg:mt-18
         drop-shadow-[0_10px_40px_rgba(157,156,61,0.5)]
       "
