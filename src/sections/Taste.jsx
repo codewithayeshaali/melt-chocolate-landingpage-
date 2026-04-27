@@ -19,19 +19,19 @@ const Taste = () => {
   const { theme } = useContext(ThemeContext);
 
   const data = [
-  {
-    img: Caramel,
-    text: "Smooth",
-    imgClass: "img-1",
-    textClass: "text-1",
-    arrowClass: "arrow-1",
-    container: "relative z-10",
-   contentPos:
-  "absolute top-35 left-26 sm:top-35 sm:left-45 md:top-50 md:left-55 lg:top-60 lg:left-78 flex items-start gap-3 sm:gap-4 md:gap-6 lg:gap-8",
-    reverse: false,
-  },
-  {
-     img: Caramel1,
+    {
+      img: Caramel,
+      text: "Smooth",
+      imgClass: "img-1",
+      textClass: "text-1",
+      arrowClass: "arrow-1",
+      container: "relative z-10",
+      contentPos:
+        "absolute top-35 left-26 sm:top-35 sm:left-45 md:top-50 md:left-55 lg:top-60 lg:left-78 flex items-start gap-3 sm:gap-4 md:gap-6 lg:gap-8",
+      reverse: false,
+    },
+    {
+      img: Caramel1,
       text: "Crunchy",
       imgClass: "img-2",
       textClass: "text-2",
@@ -40,49 +40,45 @@ const Taste = () => {
       contentPos:
         "absolute bottom-55 -left-12 sm:bottom-70 sm:-left-16 md:bottom-85 md:-left-22 lg:bottom-110 lg:-left-25 flex items-end gap-3 sm:gap-4 md:gap-6 lg:gap-8",
       reverse: true,
-  },
-  {
-    img: Caramel2,
-    text: "Yummy",
-    imgClass: "img-3",
-    textClass: "text-3",
-    arrowClass: "arrow-3",
-    container: "absolute -z-10",
-    contentPos:
-      "absolute top-60 left-4 sm:top-70 sm:left-10 md:top-80 md:left-25 lg:top-112 lg:left-27 flex items-start gap-3 sm:gap-4 md:gap-6 lg:gap-8",
+    },
+    {
+      img: Caramel2,
+      text: "Yummy",
+      imgClass: "img-3",
+      textClass: "text-3",
+      arrowClass: "arrow-3",
+      container: "absolute -z-10",
+      contentPos:
+        "absolute top-60 left-4 sm:top-70 sm:left-10 md:top-80 md:left-25 lg:top-112 lg:left-27 flex items-start gap-3 sm:gap-4 md:gap-6 lg:gap-8",
       reverse: false,
-  },
-  {
-    img: Caramel3,
-    text: "Balance",
-    imgClass: "img-4",
-    textClass: "text-4",
-    arrowClass: "arrow-4",
-    container: "absolute -z-20",
-    contentPos:
+    },
+    {
+      img: Caramel3,
+      text: "Balance",
+      imgClass: "img-4",
+      textClass: "text-4",
+      arrowClass: "arrow-4",
+      container: "absolute -z-20",
+      contentPos:
         "absolute top-18 -left-31 sm:top-40 sm:-left-57 md:top-75 md:-left-75 lg:top-86 lg:-left-105 flex items-end gap-3 sm:gap-4 md:gap-6 lg:gap-8",
-    reverse: true,
-  },
-];
+      reverse: true,
+    },
+  ];
 
   useGSAP(
     () => {
-     
       data.forEach((item, i) => {
         gsap.set(`.${item.imgClass}`, {
           visibility: i === 0 ? "visible" : "hidden",
         });
       });
 
-     
       const splits = data.map(
-        (item) =>
-          new SplitText(`.${item.textClass}`, { type: "chars" })
+        (item) => new SplitText(`.${item.textClass}`, { type: "chars" }),
       );
 
-    
       const arrows = gsap.utils.toArray(
-        tasteRef.current.querySelectorAll(".arrow-path")
+        tasteRef.current.querySelectorAll(".arrow-path"),
       );
 
       arrows.forEach((path) => {
@@ -108,11 +104,7 @@ const Taste = () => {
           tl.to(`.${data[i - 1].imgClass}`, {
             visibility: "hidden",
           });
-          tl.to(
-            `.${item.imgClass}`,
-            { visibility: "visible" },
-            "<"
-          );
+          tl.to(`.${item.imgClass}`, { visibility: "visible" }, "<");
         }
 
         tl.to(
@@ -122,7 +114,7 @@ const Taste = () => {
             duration: 1.2,
             ease: "power1.inOut",
           },
-          "<+=0.3"
+          "<+=0.3",
         );
 
         tl.to(
@@ -131,7 +123,7 @@ const Taste = () => {
             fill: "#0D1927",
             duration: 0.2,
           },
-          "<+=0.4"
+          "<+=0.4",
         );
 
         tl.from(
@@ -141,23 +133,21 @@ const Taste = () => {
             stagger: 0.08,
             duration: 0.6,
           },
-          "<+=0.1"
+          "<+=0.1",
         );
       });
     },
-    { scope: tasteRef }
+    { scope: tasteRef },
   );
 
   return (
     <section
       ref={tasteRef}
       className={`text-center handwritten min-h-screen lg:h-screen px-4 sm:px-6 md:px-8 pt-6 sm:pt-8 md:pt-10 lg:pt-8 pb-12 sm:pb-16 md:pb-20 lg:pb-20 overflow-hidden transition-colors duration-500 ${
-        theme === "dark"
-          ? "bg-black text-white"
-          : "bg-[#f7f3ea] text-amber-900"
+        theme === "dark" ? "bg-black text-white" : "bg-[#f7f3ea] text-amber-900"
       }`}
     >
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold mb-6 sm:mb-8 md:mb-10">
         Feel the Melt
       </h2>
 
@@ -173,15 +163,15 @@ const Taste = () => {
             <div className={item.contentPos}>
               {!item.reverse ? (
                 <>
-               <svg
-   viewBox="0 0 113 84"
-className="w-16 sm:w-20 md:w-24 rotate-6 translate-x-2"  fill="none"
- xmlns="http://www.w3.org/2000/svg"
- 
->
-  <path
-   className={`arrow-path ${item.arrowClass}`}
-    d="M0.5 11.2
+                  <svg
+                    viewBox="0 0 113 84"
+                    className="w-16 sm:w-20 md:w-24 rotate-6 translate-x-2"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      className={`arrow-path ${item.arrowClass}`}
+                      d="M0.5 11.2
                   C6.6 21 34.5 32.1 54 32.6
                   C75.1 33.3 86.9 29.8 110.3 16
                   C110.1 17.6 109.8 19 109.8 20.2
@@ -198,13 +188,13 @@ className="w-16 sm:w-20 md:w-24 rotate-6 translate-x-2"  fill="none"
                   C61.5 33.6 36.5 30.5 12.4 17.9
                   C9.2 16.3 6.3 14.3 3.3 12.5
                   C2.3 12.2 1.5 11.9 0.5 11.2Z"
-    fill="none"
-    stroke={theme === "dark" ? "#f5f5f5" : "#2C2C2C"}
-    strokeWidth={2.7}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
-</svg>
+                      fill="none"
+                      stroke={theme === "dark" ? "#f5f5f5" : "#2C2C2C"}
+                      strokeWidth={2.7}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
 
                   <span
                     className={`${item.textClass} text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-bold whitespace-nowrap`}
@@ -219,15 +209,15 @@ className="w-16 sm:w-20 md:w-24 rotate-6 translate-x-2"  fill="none"
                   >
                     {item.text}
                   </span>
-<svg
-  viewBox="0 0 113 84"
-  className="w-16 sm:w-20 md:w-24 rotate-[150deg]"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    className={`arrow-path ${item.arrowClass}`}
-    d="M0 23.5
+                  <svg
+                    viewBox="0 0 113 84"
+                    className="w-16 sm:w-20 md:w-24 rotate-[150deg]"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      className={`arrow-path ${item.arrowClass}`}
+                      d="M0 23.5
     C9.8 17.3 40.1 19.9 57.9 28
     C77.1 36.7 86.2 45 101.1 67.7
     C101.7 66.1 102 64.8 102.5 63.7
@@ -244,13 +234,13 @@ className="w-16 sm:w-20 md:w-24 rotate-6 translate-x-2"  fill="none"
     C65.1 30.4 41.2 22.2 14.1 22.9
     C10.5 23 7 23.5 3.5 23.7
     C2.5 23.6 1.6 23.5 0 23.5Z"
-    fill="none"
-    stroke={theme === "dark" ? "#f5f5f5" : "#2C2C2C"}
-    strokeWidth={2.7}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
-</svg>
+                      fill="none"
+                      stroke={theme === "dark" ? "#f5f5f5" : "#2C2C2C"}
+                      strokeWidth={2.7}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </>
               )}
             </div>
