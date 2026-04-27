@@ -38,7 +38,7 @@ const Taste = () => {
       arrowClass: "arrow-2",
       container: "absolute z-0",
       contentPos:
-        "absolute bottom-55 -left-14 sm:bottom-70 sm:-left-16 md:bottom-85 md:-left-25 lg:bottom-110 lg:-left-30 flex items-end gap-3 sm:gap-4 md:gap-6 lg:gap-8",
+        "absolute bottom-55 -left-12 sm:bottom-70 sm:-left-16 md:bottom-85 md:-left-22 lg:bottom-110 lg:-left-25 flex items-end gap-3 sm:gap-4 md:gap-6 lg:gap-8",
       reverse: true,
   },
   {
@@ -60,7 +60,7 @@ const Taste = () => {
     arrowClass: "arrow-4",
     container: "absolute -z-20",
     contentPos:
-        "absolute top-18 -left-32 sm:top-40 sm:-left-57 md:top-75 md:-left-75 lg:top-86 lg:-left-107 flex items-end gap-3 sm:gap-4 md:gap-6 lg:gap-8",
+        "absolute top-18 -left-31 sm:top-40 sm:-left-57 md:top-75 md:-left-75 lg:top-86 lg:-left-105 flex items-end gap-3 sm:gap-4 md:gap-6 lg:gap-8",
     reverse: true,
   },
 ];
@@ -198,7 +198,7 @@ className="w-16 sm:w-20 md:w-24 rotate-6 translate-x-2"  fill="none"
                   C61.5 33.6 36.5 30.5 12.4 17.9
                   C9.2 16.3 6.3 14.3 3.3 12.5
                   C2.3 12.2 1.5 11.9 0.5 11.2Z"
-    fill={theme === "dark" ? "#f5f5f5" : "#2C2C2C"}
+    fill="none"
     stroke={theme === "dark" ? "#f5f5f5" : "#2C2C2C"}
     strokeWidth={2.7}
     strokeLinecap="round"
@@ -244,7 +244,7 @@ className="w-16 sm:w-20 md:w-24 rotate-6 translate-x-2"  fill="none"
     C65.1 30.4 41.2 22.2 14.1 22.9
     C10.5 23 7 23.5 3.5 23.7
     C2.5 23.6 1.6 23.5 0 23.5Z"
-    fill={theme === "dark" ? "#f5f5f5" : "#2C2C2C"}
+    fill="none"
     stroke={theme === "dark" ? "#f5f5f5" : "#2C2C2C"}
     strokeWidth={2.7}
     strokeLinecap="round"
